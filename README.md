@@ -36,6 +36,23 @@ _vitejs is integrated with postcss out of the box. Whenever it identifies the `p
 To ease development, make sure to have `Tailwind CSS IntelliSense` and `PostCSS Language Support` plugins installed in your VSC.
 
 
+## Story Book
+
+It is a tool that allows developers to preview components in isolation (without the need to go all the way where the given component is rendered and/or applied). It also helps with documentation of the project.
+
+
+Setup:
+
+`npx sb init --builder @storybook/builder-vite --use-npm` (By default, storybook builder sets up the config for webpack + babel, thus the need to change the default behaviour)
+
+
+Running:
+
+When the story book is set up, 2 new scripts are added to package.json: 1. to build the storybook (`npm run build-storybook`) 2. to start the storybook in the local environment (`npm run storybook`).
+
+
+
+
 ### Figma notes
 
 To create a new frame based on a pre-determined screen size or device key `F` and choose the preferred option (desktop, phone, tablet, etc).
