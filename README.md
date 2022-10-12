@@ -111,6 +111,7 @@ In a nutshell, what this component does is to pass down all the properties of a 
 _For usage, refer to commit._
 
 
+For checkbox `npm install @radix-ui/react-checkbox`.
 
 ### Creating your project's tokens
 
