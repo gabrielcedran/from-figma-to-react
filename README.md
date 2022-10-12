@@ -73,6 +73,32 @@ To also change the preview to the dark theme, add the following lines to the pre
 ```
 
 
+### Conditional styles properties with CLSX
+
+Tailwind has some limitation when it comes to conditional / dynamic properties. CLSX library comes to the rescue (other possibilies are windstitch, stitches, etc):
+
+Installation: `npm install --save clsx`
+
+Usage:
+
+```
+import {clsx} from 'clsx'
+
+<span className={clsx(
+    'text-gray-100 font-sans', 
+    {
+        'text-xs': size === 'sm',
+        'text-md': size === 'md',
+        'text-lg': size === 'md',
+    })
+}>
+    {children}
+</span>
+
+```
+
+The first parameter are the defaul properties. The second, is an object with the classes to be applied in case the expression is true.
+
 ### Creating your project's tokens
 
 Tailwind comes with a myriad of tokens out of the box (e.g colours, sizes, spacings, etc). When customising it, you have basically two options (both via the theme property of the tailwind.config.js file): 
