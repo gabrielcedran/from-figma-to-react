@@ -3,6 +3,16 @@
 Ignite Lab October 2022
 
 
+## ViteJS
+
+
+#### Creating the project with ViteJS
+
+`yarn create vite`, name the project, choose the framework you want to use (react, vue, etc) and whether you want to use TS or vanilla JS.
+
+_by default vite does not install the dependencies to allow you to choose the dependency manager you want_
+
+
 ### Figma notes
 
 To create a new frame based on a pre-determined screen size or device key `F` and choose the preferred option (desktop, phone, tablet, etc).
