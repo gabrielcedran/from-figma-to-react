@@ -3,7 +3,9 @@
 Ignite Lab October 2022
 
 
-## ViteJS
+
+## Vite JS
+
 
 
 #### Creating the project with ViteJS
