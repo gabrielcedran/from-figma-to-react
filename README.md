@@ -73,6 +73,27 @@ To also change the preview to the dark theme, add the following lines to the pre
 ```
 
 
+### Creating your project's tokens
+
+Tailwind comes with a myriad of tokens out of the box (e.g colours, sizes, spacings, etc). When customising it, you have basically two options (both via the theme property of the tailwind.config.js file): 
+
+1. extend the existing tokens via the extend property
+2. replace a token all together, by redefining the token inside the theme configuration
+
+```
+  theme: {
+    colors: { // this one replaces all colours provided by css. The only colour that will exist in this project is gray.
+      'gray-900': '#121214'
+    },
+    extend: { // this method adds on top of tailwind's pre-determined configs
+      fontFamily: {
+        sans: 'Inter, sans-serif'
+      }
+    },
+  },
+```
+
+
 ### Figma notes
 
 To create a new frame based on a pre-determined screen size or device key `F` and choose the preferred option (desktop, phone, tablet, etc).
