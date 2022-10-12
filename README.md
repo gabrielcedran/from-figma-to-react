@@ -51,6 +51,26 @@ Running:
 When the story book is set up, 2 new scripts are added to package.json: 1. to build the storybook (`npm run build-storybook`) 2. to start the storybook in the local environment (`npm run storybook`).
 
 
+Customisations:
+
+To change the default theme, create a `manager.js` file inside .storybook folder and add the following lines:
+
+```
+import {addons} from '@storybook/addons'
+import {themes} from '@storybook/theming'
+
+addons.setConfig({
+    theme: themes.dark
+})
+```
+
+To also change the preview to the dark theme, add the following lines to the preview.cjs:
+
+```
+  docs: {
+    theme: themes.dark
+  }
+```
 
 
 ### Figma notes
