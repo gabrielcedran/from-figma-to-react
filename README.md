@@ -8,9 +8,30 @@ Ignite Lab October 2022
 
 #### Creating the project with ViteJS
 
-`yarn create vite`, name the project, choose the framework you want to use (react, vue, etc) and whether you want to use TS or vanilla JS.
+`yarn create vite` or `npm create vite@latest`, name the project, choose the framework you want to use (react, vue, etc) and whether you want to use TS or vanilla JS.
 
 _by default vite does not install the dependencies to allow you to choose the dependency manager you want_
+
+
+## Tailwind CSS
+
+First add the dependencies `npm install -D tailwindcss postcss autoprefixer` and then initialize tailwindcss `npx tailwindcss init -p` (-p is used to create the postcss config file as well).
+
+Next, instruct tailwind where to find the content files in our application (where the tailwind classes will be located). Inside the `tailwind.config.cjs`, locate the content property and add the entry `'./src/**/*.tsx'`.
+
+Create the `global.css` file and import tailwind's `base`, `utilities` and `components` (refer to commit) and import in the main application component.
+
+
+
+`Postcss` is a css bundler to enable tailwind to work within our project
+
+`Autoprefixer` is a library to automatically add the prefixes of functionalities that only work for specific browsers (e.g --webkit, --moz, etc).
+
+
+_vitejs is integrated with postcss out of the box. Whenever it identifies the `postcss.config.cjs` file in the root path, it automatically does what it has to do_
+
+
+To ease development, make sure to have `Tailwind CSS IntelliSense` and `PostCSS Language Support` plugins installed in your VSC.
 
 
 ### Figma notes
