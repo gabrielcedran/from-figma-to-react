@@ -99,6 +99,19 @@ import {clsx} from 'clsx'
 
 The first parameter are the defaul properties. The second, is an object with the classes to be applied in case the expression is true.
 
+
+### Radix UI
+
+Radix UI is a lib that provides an array of unstyled components (modals, checkbox, etc). One of its coolest components is the slot component, that allows the creation of react component that enables users to define which html tag they want to use (example the default is a span, but the user might want to use as a paragraph - similarly to what chakra-ui does). 
+
+Installation `npm install @radix-ui/react-slot`.
+
+In a nutshell, what this component does is to pass down all the properties of a given component to its first child.
+
+_For usage, refer to commit._
+
+
+
 ### Creating your project's tokens
 
 Tailwind comes with a myriad of tokens out of the box (e.g colours, sizes, spacings, etc). When customising it, you have basically two options (both via the theme property of the tailwind.config.js file): 
