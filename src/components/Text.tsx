@@ -3,12 +3,13 @@ import {Slot} from '@radix-ui/react-slot';
 import { ReactNode } from 'react';
 
 export interface TextProps {
-    size?: 'sm' | 'md' | 'lg',
-    children: ReactNode,
-    asChild?: boolean
+    size?: 'sm' | 'md' | 'lg';
+    children: ReactNode;
+    asChild?: boolean;
+    className?: string;
 }
 
-export function Text({size = 'md', children, asChild}: TextProps) {
+export function Text({size = 'md', children, asChild, className}: TextProps) {
 
     const Comp = asChild ? Slot : 'span';
 
@@ -18,8 +19,9 @@ export function Text({size = 'md', children, asChild}: TextProps) {
             {
                 'text-xs': size === 'sm',
                 'text-md': size === 'md',
-                'text-lg': size === 'md',
-            })
+                'text-lg': size === 'lg',
+            }, 
+            className)
         }>
             {children}
         </Comp>

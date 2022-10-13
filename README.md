@@ -280,3 +280,8 @@ Installation:
 - add the entry `"@storybook/addon-a11y"` in the addons property in the `main.cjs` file
 
 
+#### Useful links
+
+https://transform.tools/
+
+https://worldvectorlogo.com/
