@@ -133,6 +133,68 @@ Tailwind comes with a myriad of tokens out of the box (e.g colours, sizes, spaci
   },
 ```
 
+### Creating your project's components and stories
+
+After creating a generic component, in order to create the respective story and benefit from the storybook, you have to create a file with suffix `.stories.tsx`
+that exports (at least) two things: 1. object that defines the component being documented 2. a variable that contains the properties that need to be passed down to render 
+that component (you can have as many as you want of this and they work a variations of that component given the many states it can take up).
+
+As a suggestion the file name should match your component's. Example:
+
+`Text.stories.tsx`:
+
+```
+export default {
+    title: 'Components/Text', // this is the menu where this component will be shown in storybook ui. This component Text is under menu `Components`, but you could have as many levels as you wanted
+    component: Text, // the react component itself
+    args: {  // default args that are passed to the component
+        children: 'Sample Text.',
+        size: 'md'
+    },
+    argTypes: {  // a list of control args that the users of the storybook ui can change dynamically
+        size: {
+            options: ['sm', 'md', 'lg'],
+            control: {
+                type: 'inline-radio'
+            }
+        }
+    }
+} as Meta<TextProps>
+
+export const Default: StoryObj<TextProps> = {
+
+} // the dafault variation when no args are passed down - the name default is not mandatory
+
+// below are two variations example
+export const Large: StoryObj<TextProps> = {
+    args: {
+        size: 'lg'
+    }
+}
+
+export const CustomComponent: StoryObj<TextProps> = {
+    args: {
+        asChild: true,
+        children: (<p>Text with P tag</p>)
+    },
+    argTypes: {
+        children: {
+            table: {
+                disable: true
+            }
+        },
+        asChild: {
+            table: {
+                disable: true
+            }
+        }
+    }
+}
+
+```
+
+
+
 
 ### Figma notes
 
