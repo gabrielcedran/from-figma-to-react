@@ -2,11 +2,12 @@
 
 Ignite Lab October 2022
 
+The storybook for this project can be found in [here](https://gabrielcedran.github.io/from-figma-to-react)
 
 
 ## Vite JS
 
-
+... 
 
 #### Creating the project with ViteJS
 
@@ -264,5 +265,18 @@ Variants (e.g to enable hovered or focused versions):
 3. duplicate the component that you want the new variation, move it within the purple box so you can see both and change it
 4. give the new variant property name (e.g hover)
 5. When using the component in the project, just toggle the wanted version on the component's properties  
+
+
+### Extras
+
+#### Accessibility add-on
+
+Storybook supports add-ons to ease different tasks. One of the most famous add-ons is accessibility add-on (storybook/addon-a11y). 
+This addon provides reports concerning components accessibility (good practices violation and warnings). 
+
+Installation:
+
+- `npm install @storybook/addon-a11y`
+- add the entry `"@storybook/addon-a11y"` in the addons property in the `main.cjs` file
 
 
