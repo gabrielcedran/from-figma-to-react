@@ -194,6 +194,23 @@ export const CustomComponent: StoryObj<TextProps> = {
 ```
 
 
+### Deploying the storybook live
+
+There are a couple of options to deploy the storybook live so that other people (including non dev peps) can use. Vercel and Github Page (which is free :)) are just two examples.
+
+To automate the deployment process use the `storybook-deployer` lib:
+
+1. `npm install @storybook/storybook-deployer --save-dev`.
+2. create the npm script in the package.json (`"deploy-storybook": "storybook-to-ghpages"` easy, huh?) p.s if using another host, check storybook deployer docs
+3. create the GH workflow to enable auto deploy (suggestion `.github/workflows/deploy-docs.yml) - refer to commit
+4. update the application context path to match the github's repository name in the `main.csj` file for production (otherwise storybook gets lost as it tries to function on root path)
+5. config github pages on github itself after the first successful deploy: settings -> pages -> select option `deploy from a branch` in `source` and `gh-pages` `\(root)` under `Branch` -> Save 
+
+After completing step #5 another build will be triggered to in fact deploy the static pages to gh-pages. When it is done, the storybook pages can be accessed using the link provided by the build console.
+
+_don't forget to add the folder `storybook-static` to .gitignore. This folder with all its content is created when the command build-storybook is executed._
+_It creates the whole storybook bundle with static pages to enable them to be hosted in a server_
+
 
 
 ### Figma notes
