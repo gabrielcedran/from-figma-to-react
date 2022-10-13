@@ -213,6 +213,29 @@ _don't forget to add the folder `storybook-static` to .gitignore. This folder wi
 _It creates the whole storybook bundle with static pages to enable them to be hosted in a server_
 
 
+### Unit tests with storybook interactions
+
+Install the necessary dependencies `npm install @storybook/addon-interactions @storybook/jest @storybook/testing-library @storybook/test-runner -D` and add the entry `"interactionsDebugger": true` in the `features` property and `"@storybook/addon-interactions",` in the `addons` in the `main.cjs`.
+
+The variants have a property named play, that is responsible for defining the automated tests. Example of test definition:
+
+```
+    play: async ({canvasElement}) => {
+        const canvas = within(canvasElement)
+
+        userEvent.type(canvas.getByPlaceholderText("Digite o seu email"), "don@bob.com")
+        userEvent.type(canvas.getByPlaceholderText("****"), "12345")
+
+        userEvent.click(canvas.getByText("Entrar na plataforma"))
+
+        await waitFor(() => {
+            return expect(canvas.getByText("Login Realizado!")).toBeInTheDocument()
+        })
+    }
+```
+
+It is possible to play the tests step by step on the storybook ui.
+
 
 ### Figma notes
 
