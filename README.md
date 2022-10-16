@@ -236,6 +236,72 @@ The variants have a property named play, that is responsible for defining the au
 
 It is possible to play the tests step by step on the storybook ui.
 
+The `@storybook/test-runner` enables all story tests to be execute on the command line and turn storybook into a regular test environment (including in watch mode: `npm run test-storybook -- --watch` <don't forget to create the test-storybook script in `package.json`>).
+
+
+#### Service mocks with MSW
+
+MSW is at the moment one of the best mock servers for JS (if not the best). Different from the other mock tools, 
+MSW does not intercept the http requests and prevent them from happening - it practically creates a local api operating in the browser service workers, thus 
+the requests are logged on the network tab and technically work as a regular http request.
+
+It has integration with workbook out of the box.
+
+Installation: `npm i msw msw-storybook-addon -D` then `npx msw init public/`. 
+
+Inside `main.cjs` add the following lines inside the exported object:
+
+```
+"staticDirs": [
+    "../public"
+  ],
+```
+
+Inside `preview.cjs` add the following lines:
+
+```
+import { initialize, mswDecorator } from 'msw-storybook-addon';
+
+initialize();
+
+export const decorators = [mswDecorator];
+
+```
+
+To suppress warning on console due to captured but unhandled requests, add the following config to the initialize function:
+
+```
+initialize({onUnhandledRequest: 'bypass'});
+```
+
+##### Mocking requests
+
+Inside the story's meta object, add the following lines:
+
+```
+import { rest } from 'msw';
+
+...
+
+    parameters: {
+        msw: {
+            handlers: [
+                rest.post('/sessions', (req, res, ctx) => {
+                    return res(ctx.json({ // response json
+                        message: 'Logged in successfully'
+                    }))
+                })
+            ], 
+        }
+    }
+
+```
+
+
+### Axios
+
+`npm i axios`
+
 
 ### Figma notes
 
